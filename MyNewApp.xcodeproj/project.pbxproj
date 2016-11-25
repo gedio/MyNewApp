@@ -9,9 +9,11 @@
 /* Begin PBXBuildFile section */
 		A072F3901DE6C2B00093B878 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A072F38F1DE6C2B00093B878 /* main.m */; };
 		A072F3931DE6C2B00093B878 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A072F3921DE6C2B00093B878 /* AppDelegate.m */; };
-		A072F3961DE6C2B00093B878 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A072F3951DE6C2B00093B878 /* ViewController.m */; };
 		A072F39B1DE6C2B00093B878 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A072F39A1DE6C2B00093B878 /* Assets.xcassets */; };
 		A072F39E1DE6C2B00093B878 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A072F39C1DE6C2B00093B878 /* LaunchScreen.storyboard */; };
+		A072F3A71DE6F7E10093B878 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A072F3A61DE6F7E10093B878 /* BaseViewController.m */; };
+		A072F3AA1DE728ED0093B878 /* MomentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A072F3A91DE728ED0093B878 /* MomentListViewController.m */; };
+		A072F3AD1DE729E70093B878 /* MomentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A072F3AC1DE729E70093B878 /* MomentDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,11 +21,15 @@
 		A072F38F1DE6C2B00093B878 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A072F3911DE6C2B00093B878 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A072F3921DE6C2B00093B878 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A072F3941DE6C2B00093B878 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A072F3951DE6C2B00093B878 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A072F39A1DE6C2B00093B878 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A072F39D1DE6C2B00093B878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A072F39F1DE6C2B00093B878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A072F3A51DE6F7E10093B878 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		A072F3A61DE6F7E10093B878 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		A072F3A81DE728ED0093B878 /* MomentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentListViewController.h; sourceTree = "<group>"; };
+		A072F3A91DE728ED0093B878 /* MomentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentListViewController.m; sourceTree = "<group>"; };
+		A072F3AB1DE729E70093B878 /* MomentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentDetailViewController.h; sourceTree = "<group>"; };
+		A072F3AC1DE729E70093B878 /* MomentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +62,14 @@
 		A072F38D1DE6C2B00093B878 /* MyNewApp */ = {
 			isa = PBXGroup;
 			children = (
+				A072F3A51DE6F7E10093B878 /* BaseViewController.h */,
+				A072F3A61DE6F7E10093B878 /* BaseViewController.m */,
 				A072F3911DE6C2B00093B878 /* AppDelegate.h */,
 				A072F3921DE6C2B00093B878 /* AppDelegate.m */,
-				A072F3941DE6C2B00093B878 /* ViewController.h */,
-				A072F3951DE6C2B00093B878 /* ViewController.m */,
+				A072F3AB1DE729E70093B878 /* MomentDetailViewController.h */,
+				A072F3AC1DE729E70093B878 /* MomentDetailViewController.m */,
+				A072F3A81DE728ED0093B878 /* MomentListViewController.h */,
+				A072F3A91DE728ED0093B878 /* MomentListViewController.m */,
 				A072F39A1DE6C2B00093B878 /* Assets.xcassets */,
 				A072F39C1DE6C2B00093B878 /* LaunchScreen.storyboard */,
 				A072F39F1DE6C2B00093B878 /* Info.plist */,
@@ -146,9 +156,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A072F3961DE6C2B00093B878 /* ViewController.m in Sources */,
+				A072F3A71DE6F7E10093B878 /* BaseViewController.m in Sources */,
 				A072F3931DE6C2B00093B878 /* AppDelegate.m in Sources */,
+				A072F3AD1DE729E70093B878 /* MomentDetailViewController.m in Sources */,
 				A072F3901DE6C2B00093B878 /* main.m in Sources */,
+				A072F3AA1DE728ED0093B878 /* MomentListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
