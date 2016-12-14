@@ -7,26 +7,201 @@
 //
 
 #import "MomentListViewController.h"
+#import "MomentCell.h"
+#import "MomentDetailViewController.h"
+#import "PostMomentViewController.h"
+#import "KetangPersistenManager.h"
+#import "KetangUtility.h"
+#import "BlankView.h"
+#import "RetryView.h"
+#import "UIImage+Ketang.h"
+
 
 @interface MomentListViewController ()
+
+@property(nonatomic,strong) NSArray *moment;
+@property(nonatomic,strong) UITableView *tableView;
+@property(nonatomic,strong) UIView *blankView;
+@property(nonatomic,strong) UIView *retryView;
+@property(nonatomic,strong) UIImageView *cover;
+@property(nonatomic) BOOL tableShowed;
+
 
 @end
 
 @implementation MomentListViewController
 
+-(void)showCover{
+    
+    //设定好封面图片
+    self.cover = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [KetangUtility screenWidth], [KetangUtility screenHeigth])];
+    self.cover.image = [UIImage imageNamed:@"cover.png"];
+    self.cover.userInteractionEnabled = YES;
+    self.cover.contentMode = UIViewContentModeScaleAspectFit;
+    
+    [[UIApplication sharedApplication].keyWindow addSubview:self.cover];
+    
+    //设定好封面图片上的按钮
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(([KetangUtility screenWidth]-200)/2, [KetangUtility screenHeigth]-84, 200, 44)];
+    [button setTitle:@"进入" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    button.layer.borderWidth = 1;
+    button.layer.borderColor = [UIColor whiteColor].CGColor;
+    button.layer.cornerRadius = 3;
+    button.layer.masksToBounds = YES;
+    
+    [button setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithWhite:1 alpha:0.3] andSize:button.frame.size] forState:UIControlStateHighlighted];
+    [self.cover addSubview:button];
+    
+    [button addTarget:self action:@selector(hideCover) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)hideCover{
+    
+    //隐藏封面
+    [self.cover removeFromSuperview];
+    
+    //载入笔记
+    [self loadMoment];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    if (self.tableView !=nil) {
+        //找到被选中的那一行
+        NSIndexPath *selectingRow = [self.tableView indexPathForSelectedRow];
+        
+        if (selectingRow != nil) {
+            [self.tableView deselectRowAtIndexPath:selectingRow animated:YES];
+        }
+        //取消这一行的选中状态
+    }
+}
+
+-(void)handleView{
+    
+    [self hideLoading];
+    
+
+    
+    //如果读取失败，则展示retryView
+    if (self.moment ==nil){
+        [self.tableView removeFromSuperview];
+        [self.blankView removeFromSuperview];
+        [self.retryView removeFromSuperview];
+        [self.view addSubview:self.retryView];
+        self.tableShowed = NO;
+        return;
+    }
+    
+    
+    //如果读取成功，但是条目数为0，则展示blankView
+    if ([self.moment count] ==0) {
+        [self.tableView removeFromSuperview];
+        [self.blankView removeFromSuperview];
+        [self.retryView removeFromSuperview];
+        [self.view addSubview:self.blankView];
+        self.tableShowed = NO;
+        return;
+    }
+    
+    if (self.tableShowed) {
+        [self.tableView beginUpdates];
+        NSIndexPath *theROW = [NSIndexPath indexPathForRow:0 inSection:0];
+        NSArray *insertRows = [NSArray arrayWithObject:theROW];
+        [self.tableView insertRowsAtIndexPaths:insertRows withRowAnimation:UITableViewRowAnimationTop];
+        [self.tableView endUpdates];
+        return;
+    }
+    
+    
+    //如果读取成功，条目数不为0，则展示tableView
+    [self.tableView removeFromSuperview];
+    [self.blankView removeFromSuperview];
+    [self.retryView removeFromSuperview];
+    [self.view addSubview:self.tableView];
+    self.tableShowed = YES;
+    
+}
+
+
+-(void)loadMoment{
+    
+    [self showLoading];
+    
+    NSMutableArray *momentBeforeSorting = [KetangPersistenManager getMoment];
+    
+    self.moment = [momentBeforeSorting sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *a,NSDictionary *b){
+        
+        NSNumber *aTimestamp = [a objectForKey:@"timestamp"];
+        NSNumber *bTimestamp = [b objectForKey:@"timestamp"];
+        
+        if (aTimestamp > bTimestamp){//如果A更新，A排在B之前
+            return (NSComparisonResult)NSOrderedAscending;
+            
+        }else if(aTimestamp < bTimestamp){//如果B更新，B排在A之前
+            return  (NSComparisonResult)NSOrderedDescending;
+            
+        }else{//如果一样，则顺序不改变
+            return  (NSComparisonResult)NSOrderedSame;
+        }
+        
+        
+        
+        
+    }];
+    
+    [self performSelector:@selector(handleView) withObject:nil afterDelay:0.5];
+    
+}
+
+-(void)post{
+    
+    PostMomentViewController *post = [[PostMomentViewController alloc] init];
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:post];
+    
+    
+    [self.navigationController presentViewController:nav animated:YES completion:nil];
+    
+    
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //自定义表单以及不要自定义距离高度
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-64)];
-    [self.view addSubview:tableView];
-    tableView.dataSource = self;
-    tableView.delegate = self;
+    [self showCover];
     
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.tableShowed = NO;
     
+    
+    
+    //表格的实例化和初始化
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, [KetangUtility screenHeigth], [KetangUtility screenHeigth]-64)];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
+    //空白页的提示页的实例化和初始化
+    self.blankView = [BlankView blankViewWinthText:@"空空如也" buttonText:@"亲，写一句吧" target:self action:@selector(post)];
+    
+    //重试提示页的实例化和初始化
+    self.retryView = [RetryView retryViewWinthText:@"额，出错了" buttonText:@"重试" target:self action:@selector(loadMoment)];
+    
+
+    
+    //按钮
+    [self setRightNavigationButtonWithTitle:@"写笔记" target:self action:@selector(post)];
+    
+
     [self setSingleLineTitle:@"笔记"];
+    
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    
+    [center addObserver:self selector:@selector(loadMoment) name:@"newMomentSaved" object:nil];
+    
     
 }
 
@@ -38,48 +213,37 @@
 
 //签署协议
 -(NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    
+    if (self.moment ==nil){
+        
+        return 0;
+        
+    }
+    
+    return [self.moment count];
 }
 
 -(UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"moment"];
+    MomentCell *cell = [MomentCell prepareCellForTableView:tableView];
     
-    if (cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"moment"];
-        
-        
-        UILabel *dayLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 16, 47, 46)];
-        dayLabel.text = @"7";
-        dayLabel.textColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.3];
-        dayLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:40];
-        dayLabel.textAlignment = NSTextAlignmentRight;
-        [cell.contentView addSubview:dayLabel];
-        
-        UILabel *dayOfWeekLabel = [[UILabel alloc] initWithFrame:CGRectMake(52, 23, 100, 15)];
-        dayOfWeekLabel.text = @"星期五";
-        dayOfWeekLabel.textColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.3];
-        dayOfWeekLabel.font = [UIFont systemFontOfSize:12];
-        dayOfWeekLabel.textAlignment = NSTextAlignmentLeft;
-        [cell.contentView addSubview:dayOfWeekLabel];
-        
-        UILabel *yearAndMonthLabel = [[UILabel alloc] initWithFrame:CGRectMake(52, 38, 200, 15)];
-        yearAndMonthLabel.text = @"2016年11月";
-        yearAndMonthLabel.textColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.3];
-        yearAndMonthLabel.font = [UIFont systemFontOfSize:12];
-        yearAndMonthLabel.textAlignment = NSTextAlignmentLeft;
-        [cell.contentView addSubview:yearAndMonthLabel];
-        
-        UILabel *contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(([UIScreen mainScreen].bounds.size.width-240)/2, 79, 240, 42)];
-        contentLabel.text = @"我好开心啊，我会编程了啊";
-        contentLabel.textColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1];
-        contentLabel.font = [UIFont systemFontOfSize:15];
-        contentLabel.textAlignment = NSTextAlignmentCenter;
-        [cell.contentView addSubview:contentLabel];
-
-        
-        
-    }
+    NSInteger row = indexPath.row;
+    
+    NSDictionary *dictionary = self.moment[row];
+    
+    NSNumber *timestamp = [dictionary objectForKey:@"timestamp"];
+    
+    NSMutableDictionary *dateDictionary = [KetangUtility dateThen:timestamp];
+    NSString *year = [dateDictionary objectForKey:@"year"];
+    NSString *month = [dateDictionary objectForKey:@"month"];
+    NSString *yearAndMonth = [NSString stringWithFormat:@"%@年%@月",year,month];
+    [dateDictionary setObject:yearAndMonth forKey:@"yearAndMonth"];
+    
+    [dateDictionary addEntriesFromDictionary:dictionary];
+    
+    
+    [cell setContentWithDictionary:dateDictionary];
+    
     return cell;
 }
 
@@ -87,10 +251,40 @@
 //浮点
 -(CGFloat)tableView:(nonnull UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     
-    return 200.0;
+    NSInteger row = indexPath.row;
+    NSDictionary *dictionary = self.moment[row];
+    NSString *content = [dictionary objectForKey:@"content"];
+    
+    CGFloat height = [MomentCell cellHeightFormTexr:content];
+    
+    
+    
+    return height;
     
 }
+//点击跳转
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    NSInteger row = indexPath.row;
+    NSDictionary *dictionary = self.moment[row];
+    
+    NSNumber *timestamp = [dictionary objectForKey:@"timestamp"];
+    
+    NSMutableDictionary *dateDictionary = [KetangUtility dateThen:timestamp];
+    NSString *year = [dateDictionary objectForKey:@"year"];
+    NSString *month = [dateDictionary objectForKey:@"month"];
+    NSString *day = [dateDictionary objectForKey:@"day"];
+    NSString *yearAndMonthAndDay = [NSString stringWithFormat:@"%@年%@月%@日",year,month,day];
+    [dateDictionary setObject:yearAndMonthAndDay forKey:@"yearAndMonthAndDay"];
+    
+    [dateDictionary addEntriesFromDictionary:dictionary];
 
+    MomentDetailViewController *detail = [[MomentDetailViewController alloc] initWithDictionary:dateDictionary];
+    
+    [self.navigationController pushViewController:detail animated:YES];
+    
+}
 
 
 /*

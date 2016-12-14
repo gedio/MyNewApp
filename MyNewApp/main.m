@@ -1,9 +1,9 @@
 //
 //  main.m
-//  MyNewApp
+//  MyFirstApp
 //
-//  Created by Suma on 2016/11/24.
-//  Copyright © 2016年 Suma. All rights reserved.
+//  Created by 原型课堂 on 15/8/22.
+//  Copyright © 2015年 ketang.im. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

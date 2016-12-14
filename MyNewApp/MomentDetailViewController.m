@@ -7,24 +7,56 @@
 //
 
 #import "MomentDetailViewController.h"
+#import "KetangUtility.h"
 
 @interface MomentDetailViewController ()
+
+@property (nonatomic,strong) NSDictionary *dictionary;
 
 @end
 
 @implementation MomentDetailViewController
 
+-(MomentDetailViewController *)initWithDictionary:(NSDictionary *)dictionary{
+    
+    self = [super init];
+    self.dictionary = dictionary;
+    
+    return  self;
+
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setBackButton];
+    
+    NSString *yearAndMonthAndDay = [self.dictionary objectForKey:@"yearAndMonthAndDay"];
+    NSString *content = [self.dictionary objectForKey:@"content"];
 
+    [self setSingleLineTitle:yearAndMonthAndDay];
+    
+    CGSize contentSize = CGSizeMake([KetangUtility screenWidth]-40, 99999999999999999);
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:15],NSFontAttributeName,nil];
+    
+    CGRect contentRect = [content boundingRectWithSize:contentSize
+                                               options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                            attributes:attributes
+                                               context:nil];
+    
+    
     //正文文字
-    UILabel *contentText = [[UILabel alloc] initWithFrame:CGRectMake(20, 84, [UIScreen mainScreen].bounds.size.width-50, 20)];
-    contentText.text = @"我艹我又重复了一边";
+    UILabel *contentText = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, [KetangUtility screenWidth]-40, contentRect.size.height)];
+    contentText.text = content;
     contentText.textColor = [UIColor blackColor];
-    contentText.font = [UIFont systemFontOfSize:15];
-    contentText.textAlignment = NSTextAlignmentLeft;
-    [self.view addSubview:contentText];
+    contentText.font = [UIFont systemFontOfSize:17];
+    contentText.numberOfLines = 0;
+    
+    UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, [KetangUtility screenWidth], [KetangUtility screenHeigth]-64)];
+    scroll.contentSize = CGSizeMake(contentRect.size.width, contentRect.size.height+40);
+    [scroll addSubview:contentText];
+    [self.view addSubview:scroll];
 
 }
 
