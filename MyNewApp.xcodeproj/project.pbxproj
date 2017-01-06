@@ -7,21 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A00986E21DF9063900A25744 /* BlankView.m in Sources */ = {isa = PBXBuildFile; fileRef = A00986E11DF9063900A25744 /* BlankView.m */; };
+		A00986E61DF92E9E00A25744 /* RetryView.m in Sources */ = {isa = PBXBuildFile; fileRef = A00986E51DF92E9E00A25744 /* RetryView.m */; };
+		A02549981DED299000E4A5F6 /* MomentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A02549971DED299000E4A5F6 /* MomentCell.m */; };
+		A03C85B91DFAB3620044C46F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A03C85B81DFAB3620044C46F /* Assets.xcassets */; };
+		A03C85BC1DFAC8D20044C46F /* UIImage+Ketang.m in Sources */ = {isa = PBXBuildFile; fileRef = A03C85BB1DFAC8D20044C46F /* UIImage+Ketang.m */; };
 		A072F3901DE6C2B00093B878 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A072F38F1DE6C2B00093B878 /* main.m */; };
 		A072F3931DE6C2B00093B878 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A072F3921DE6C2B00093B878 /* AppDelegate.m */; };
-		A072F39B1DE6C2B00093B878 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A072F39A1DE6C2B00093B878 /* Assets.xcassets */; };
 		A072F39E1DE6C2B00093B878 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A072F39C1DE6C2B00093B878 /* LaunchScreen.storyboard */; };
 		A072F3A71DE6F7E10093B878 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A072F3A61DE6F7E10093B878 /* BaseViewController.m */; };
 		A072F3AA1DE728ED0093B878 /* MomentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A072F3A91DE728ED0093B878 /* MomentListViewController.m */; };
 		A072F3AD1DE729E70093B878 /* MomentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A072F3AC1DE729E70093B878 /* MomentDetailViewController.m */; };
+		A0D0EADC1DEFBCF600901014 /* KetangPersistenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D0EADB1DEFBCF600901014 /* KetangPersistenManager.m */; };
+		A0D0EAE01DF0004600901014 /* PostMomentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D0EADF1DF0004600901014 /* PostMomentViewController.m */; };
+		A0D1F84E1DFA9B3D000A5C2F /* UIButton+Ketang.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D1F84D1DFA9B3D000A5C2F /* UIButton+Ketang.m */; };
+		A0E35FD71DF154A80058E602 /* KetangUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E35FD61DF154A80058E602 /* KetangUtility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A00986E01DF9063900A25744 /* BlankView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlankView.h; sourceTree = "<group>"; };
+		A00986E11DF9063900A25744 /* BlankView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlankView.m; sourceTree = "<group>"; };
+		A00986E41DF92E9E00A25744 /* RetryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RetryView.h; sourceTree = "<group>"; };
+		A00986E51DF92E9E00A25744 /* RetryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RetryView.m; sourceTree = "<group>"; };
+		A02549961DED299000E4A5F6 /* MomentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentCell.h; sourceTree = "<group>"; };
+		A02549971DED299000E4A5F6 /* MomentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentCell.m; sourceTree = "<group>"; };
+		A03C85B81DFAB3620044C46F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A03C85BA1DFAC8D20044C46F /* UIImage+Ketang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Ketang.h"; sourceTree = "<group>"; };
+		A03C85BB1DFAC8D20044C46F /* UIImage+Ketang.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Ketang.m"; sourceTree = "<group>"; };
 		A072F38B1DE6C2B00093B878 /* MyNewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A072F38F1DE6C2B00093B878 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A072F3911DE6C2B00093B878 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A072F3921DE6C2B00093B878 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A072F39A1DE6C2B00093B878 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A072F39D1DE6C2B00093B878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A072F39F1DE6C2B00093B878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A072F3A51DE6F7E10093B878 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -30,6 +46,14 @@
 		A072F3A91DE728ED0093B878 /* MomentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentListViewController.m; sourceTree = "<group>"; };
 		A072F3AB1DE729E70093B878 /* MomentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentDetailViewController.h; sourceTree = "<group>"; };
 		A072F3AC1DE729E70093B878 /* MomentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentDetailViewController.m; sourceTree = "<group>"; };
+		A0D0EADA1DEFBCF600901014 /* KetangPersistenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KetangPersistenManager.h; sourceTree = "<group>"; };
+		A0D0EADB1DEFBCF600901014 /* KetangPersistenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KetangPersistenManager.m; sourceTree = "<group>"; };
+		A0D0EADE1DF0004600901014 /* PostMomentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostMomentViewController.h; sourceTree = "<group>"; };
+		A0D0EADF1DF0004600901014 /* PostMomentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostMomentViewController.m; sourceTree = "<group>"; };
+		A0D1F84C1DFA9B3D000A5C2F /* UIButton+Ketang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Ketang.h"; sourceTree = "<group>"; };
+		A0D1F84D1DFA9B3D000A5C2F /* UIButton+Ketang.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Ketang.m"; sourceTree = "<group>"; };
+		A0E35FD51DF154A80058E602 /* KetangUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KetangUtility.h; sourceTree = "<group>"; };
+		A0E35FD61DF154A80058E602 /* KetangUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KetangUtility.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +67,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A00986E31DF9064E00A25744 /* Custom View */ = {
+			isa = PBXGroup;
+			children = (
+				A02549961DED299000E4A5F6 /* MomentCell.h */,
+				A02549971DED299000E4A5F6 /* MomentCell.m */,
+				A00986E01DF9063900A25744 /* BlankView.h */,
+				A00986E11DF9063900A25744 /* BlankView.m */,
+				A00986E41DF92E9E00A25744 /* RetryView.h */,
+				A00986E51DF92E9E00A25744 /* RetryView.m */,
+			);
+			name = "Custom View";
+			sourceTree = "<group>";
+		};
 		A072F3821DE6C2B00093B878 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +99,9 @@
 		A072F38D1DE6C2B00093B878 /* MyNewApp */ = {
 			isa = PBXGroup;
 			children = (
+				A0D1F84F1DFA9B5C000A5C2F /* Gategory */,
+				A00986E31DF9064E00A25744 /* Custom View */,
+				A0D0EADD1DEFFE9B00901014 /* Common */,
 				A072F3A51DE6F7E10093B878 /* BaseViewController.h */,
 				A072F3A61DE6F7E10093B878 /* BaseViewController.m */,
 				A072F3911DE6C2B00093B878 /* AppDelegate.h */,
@@ -70,9 +110,11 @@
 				A072F3AC1DE729E70093B878 /* MomentDetailViewController.m */,
 				A072F3A81DE728ED0093B878 /* MomentListViewController.h */,
 				A072F3A91DE728ED0093B878 /* MomentListViewController.m */,
-				A072F39A1DE6C2B00093B878 /* Assets.xcassets */,
+				A0D0EADE1DF0004600901014 /* PostMomentViewController.h */,
+				A0D0EADF1DF0004600901014 /* PostMomentViewController.m */,
 				A072F39C1DE6C2B00093B878 /* LaunchScreen.storyboard */,
 				A072F39F1DE6C2B00093B878 /* Info.plist */,
+				A03C85B81DFAB3620044C46F /* Assets.xcassets */,
 				A072F38E1DE6C2B00093B878 /* Supporting Files */,
 			);
 			path = MyNewApp;
@@ -84,6 +126,28 @@
 				A072F38F1DE6C2B00093B878 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A0D0EADD1DEFFE9B00901014 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A0E35FD51DF154A80058E602 /* KetangUtility.h */,
+				A0E35FD61DF154A80058E602 /* KetangUtility.m */,
+				A0D0EADA1DEFBCF600901014 /* KetangPersistenManager.h */,
+				A0D0EADB1DEFBCF600901014 /* KetangPersistenManager.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		A0D1F84F1DFA9B5C000A5C2F /* Gategory */ = {
+			isa = PBXGroup;
+			children = (
+				A0D1F84C1DFA9B3D000A5C2F /* UIButton+Ketang.h */,
+				A0D1F84D1DFA9B3D000A5C2F /* UIButton+Ketang.m */,
+				A03C85BA1DFAC8D20044C46F /* UIImage+Ketang.h */,
+				A03C85BB1DFAC8D20044C46F /* UIImage+Ketang.m */,
+			);
+			name = Gategory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,11 +176,12 @@
 		A072F3831DE6C2B00093B878 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Suma;
 				TargetAttributes = {
 					A072F38A1DE6C2B00093B878 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = WVRCKNJCTR;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -144,8 +209,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A03C85B91DFAB3620044C46F /* Assets.xcassets in Resources */,
 				A072F39E1DE6C2B00093B878 /* LaunchScreen.storyboard in Resources */,
-				A072F39B1DE6C2B00093B878 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,11 +221,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A00986E61DF92E9E00A25744 /* RetryView.m in Sources */,
+				A03C85BC1DFAC8D20044C46F /* UIImage+Ketang.m in Sources */,
 				A072F3A71DE6F7E10093B878 /* BaseViewController.m in Sources */,
+				A0E35FD71DF154A80058E602 /* KetangUtility.m in Sources */,
+				A0D1F84E1DFA9B3D000A5C2F /* UIButton+Ketang.m in Sources */,
 				A072F3931DE6C2B00093B878 /* AppDelegate.m in Sources */,
+				A0D0EAE01DF0004600901014 /* PostMomentViewController.m in Sources */,
+				A0D0EADC1DEFBCF600901014 /* KetangPersistenManager.m in Sources */,
+				A00986E21DF9063900A25744 /* BlankView.m in Sources */,
 				A072F3AD1DE729E70093B878 /* MomentDetailViewController.m in Sources */,
 				A072F3901DE6C2B00093B878 /* main.m in Sources */,
 				A072F3AA1DE728ED0093B878 /* MomentListViewController.m in Sources */,
+				A02549981DED299000E4A5F6 /* MomentCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +269,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -218,7 +292,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -243,6 +317,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -259,7 +334,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -270,6 +345,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = WVRCKNJCTR;
 				INFOPLIST_FILE = MyNewApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.3keshi.MyNewApp;
@@ -281,6 +358,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = WVRCKNJCTR;
 				INFOPLIST_FILE = MyNewApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.3keshi.MyNewApp;
@@ -307,6 +386,7 @@
 				A072F3A41DE6C2B00093B878 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
